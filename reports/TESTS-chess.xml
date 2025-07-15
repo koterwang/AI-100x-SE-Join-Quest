@@ -1,0 +1,321 @@
+<testsuite name="chess.Chinese Chess (象棋) Rules" tests="22" errors="0" failures="0" skipped="0" time="0.079777" timestamp="2025-07-15T14:57:27.533479" hostname="KOTERWANG-DL"><testcase classname="chess.Chinese Chess (象棋) Rules" name="Red moves the General within the palace (Legal)" status="passed" time="0.001995"><system-out>
+<![CDATA[
+@scenario.begin
+
+  @General
+  Scenario: Red moves the General within the palace (Legal)
+    Given the board is empty except for a Red General at (1, 5) ... passed in 0.001s
+    When Red moves the General from (1, 5) to (1, 4) ... passed in 0.001s
+    Then the move is legal ... passed in 0.000s
+
+@scenario.end
+--------------------------------------------------------------------------------
+]]>
+</system-out></testcase><testcase classname="chess.Chinese Chess (象棋) Rules" name="Red moves the General outside the palace (Illegal)" status="passed" time="0.004988"><system-out>
+<![CDATA[
+@scenario.begin
+
+  @General
+  Scenario: Red moves the General outside the palace (Illegal)
+    Given the board is empty except for a Red General at (1, 6) ... passed in 0.005s
+    When Red moves the General from (1, 6) to (1, 7) ... passed in 0.000s
+    Then the move is illegal ... passed in 0.000s
+
+@scenario.end
+--------------------------------------------------------------------------------
+]]>
+</system-out></testcase><testcase classname="chess.Chinese Chess (象棋) Rules" name="Generals face each other on the same file (Illegal)" status="passed" time="0.002982"><system-out>
+<![CDATA[
+@scenario.begin
+
+  @General
+  Scenario: Generals face each other on the same file (Illegal)
+    Given the board has ... passed in 0.002s
+      | Piece         | Position |
+      | Red General   | (2, 4)   |
+      | Black General | (8, 5)   |
+    When Red moves the General from (2, 4) to (2, 5) ... passed in 0.001s
+    Then the move is illegal ... passed in 0.000s
+
+@scenario.end
+--------------------------------------------------------------------------------
+]]>
+</system-out></testcase><testcase classname="chess.Chinese Chess (象棋) Rules" name="Red moves the Guard diagonally in the palace (Legal)" status="passed" time="0.002992"><system-out>
+<![CDATA[
+@scenario.begin
+
+  @Guard
+  Scenario: Red moves the Guard diagonally in the palace (Legal)
+    Given the board is empty except for a Red Guard at (1, 4) ... passed in 0.001s
+    When Red moves the Guard from (1, 4) to (2, 5) ... passed in 0.001s
+    Then the move is legal ... passed in 0.001s
+
+@scenario.end
+--------------------------------------------------------------------------------
+]]>
+</system-out></testcase><testcase classname="chess.Chinese Chess (象棋) Rules" name="Red moves the Guard straight (Illegal)" status="passed" time="0.002992"><system-out>
+<![CDATA[
+@scenario.begin
+
+  @Guard
+  Scenario: Red moves the Guard straight (Illegal)
+    Given the board is empty except for a Red Guard at (2, 5) ... passed in 0.001s
+    When Red moves the Guard from (2, 5) to (2, 6) ... passed in 0.001s
+    Then the move is illegal ... passed in 0.001s
+
+@scenario.end
+--------------------------------------------------------------------------------
+]]>
+</system-out></testcase><testcase classname="chess.Chinese Chess (象棋) Rules" name="Red moves the Rook along a clear rank (Legal)" status="passed" time="0.003982"><system-out>
+<![CDATA[
+@scenario.begin
+
+  @Rook
+  Scenario: Red moves the Rook along a clear rank (Legal)
+    Given the board is empty except for a Red Rook at (4, 1) ... passed in 0.001s
+    When Red moves the Rook from (4, 1) to (4, 9) ... passed in 0.001s
+    Then the move is legal ... passed in 0.002s
+
+@scenario.end
+--------------------------------------------------------------------------------
+
+Captured stdout:
+>>> Given Red Rook 被執行
+
+]]>
+</system-out></testcase><testcase classname="chess.Chinese Chess (象棋) Rules" name="Red moves the Rook and attempts to jump over a piece (Illegal)" status="passed" time="0.005981"><system-out>
+<![CDATA[
+@scenario.begin
+
+  @Rook
+  Scenario: Red moves the Rook and attempts to jump over a piece (Illegal)
+    Given the board has ... passed in 0.004s
+      | Piece         | Position |
+      | Red Rook      | (4, 1)   |
+      | Black Soldier | (4, 5)   |
+    When Red moves the Rook from (4, 1) to (4, 9) ... passed in 0.001s
+    Then the move is illegal ... passed in 0.001s
+
+@scenario.end
+--------------------------------------------------------------------------------
+]]>
+</system-out></testcase><testcase classname="chess.Chinese Chess (象棋) Rules" name="Red moves the Horse in an “L” shape with no block (Legal)" status="passed" time="0.004987"><system-out>
+<![CDATA[
+@scenario.begin
+
+  @Horse
+  Scenario: Red moves the Horse in an “L” shape with no block (Legal)
+    Given the board is empty except for a Red Horse at (3, 3) ... passed in 0.002s
+    When Red moves the Horse from (3, 3) to (5, 4) ... passed in 0.002s
+    Then the move is legal ... passed in 0.001s
+
+@scenario.end
+--------------------------------------------------------------------------------
+]]>
+</system-out></testcase><testcase classname="chess.Chinese Chess (象棋) Rules" name="Red moves the Horse and it is blocked by an adjacent piece (Illegal)" status="passed" time="0.003988"><system-out>
+<![CDATA[
+@scenario.begin
+
+  @Horse
+  Scenario: Red moves the Horse and it is blocked by an adjacent piece (Illegal)
+    Given the board has ... passed in 0.002s
+      | Piece      | Position |
+      | Red Horse  | (3, 3)   |
+      | Black Rook | (4, 3)   |
+    When Red moves the Horse from (3, 3) to (5, 4) ... passed in 0.002s
+    Then the move is illegal ... passed in 0.000s
+
+@scenario.end
+--------------------------------------------------------------------------------
+]]>
+</system-out></testcase><testcase classname="chess.Chinese Chess (象棋) Rules" name="Red moves the Cannon like a Rook with an empty path (Legal)" status="passed" time="0.002993"><system-out>
+<![CDATA[
+@scenario.begin
+
+  @Cannon
+  Scenario: Red moves the Cannon like a Rook with an empty path (Legal)
+    Given the board is empty except for a Red Cannon at (6, 2) ... passed in 0.001s
+    When Red moves the Cannon from (6, 2) to (6, 8) ... passed in 0.001s
+    Then the move is legal ... passed in 0.001s
+
+@scenario.end
+--------------------------------------------------------------------------------
+]]>
+</system-out></testcase><testcase classname="chess.Chinese Chess (象棋) Rules" name="Red moves the Cannon and jumps exactly one screen to capture (Legal)" status="passed" time="0.001995"><system-out>
+<![CDATA[
+@scenario.begin
+
+  @Cannon
+  Scenario: Red moves the Cannon and jumps exactly one screen to capture (Legal)
+    Given the board has ... passed in 0.001s
+      | Piece         | Position |
+      | Red Cannon    | (6, 2)   |
+      | Black Soldier | (6, 5)   |
+      | Black Guard   | (6, 8)   |
+    When Red moves the Cannon from (6, 2) to (6, 8) ... passed in 0.001s
+    Then the move is legal ... passed in 0.000s
+
+@scenario.end
+--------------------------------------------------------------------------------
+]]>
+</system-out></testcase><testcase classname="chess.Chinese Chess (象棋) Rules" name="Red moves the Cannon and tries to jump with zero screens (Illegal)" status="passed" time="0.002991"><system-out>
+<![CDATA[
+@scenario.begin
+
+  @Cannon
+  Scenario: Red moves the Cannon and tries to jump with zero screens (Illegal)
+    Given the board has ... passed in 0.002s
+      | Piece       | Position |
+      | Red Cannon  | (6, 2)   |
+      | Black Guard | (6, 8)   |
+    When Red moves the Cannon from (6, 2) to (6, 8) ... passed in 0.001s
+    Then the move is illegal ... passed in 0.000s
+
+@scenario.end
+--------------------------------------------------------------------------------
+]]>
+</system-out></testcase><testcase classname="chess.Chinese Chess (象棋) Rules" name="Red moves the Cannon and tries to jump with more than one screen (Illegal)" status="passed" time="0.002992"><system-out>
+<![CDATA[
+@scenario.begin
+
+  @Cannon
+  Scenario: Red moves the Cannon and tries to jump with more than one screen (Illegal)
+    Given the board has ... passed in 0.002s
+      | Piece         | Position |
+      | Red Cannon    | (6, 2)   |
+      | Red Soldier   | (6, 4)   |
+      | Black Soldier | (6, 5)   |
+      | Black Guard   | (6, 8)   |
+    When Red moves the Cannon from (6, 2) to (6, 8) ... passed in 0.001s
+    Then the move is illegal ... passed in 0.000s
+
+@scenario.end
+--------------------------------------------------------------------------------
+]]>
+</system-out></testcase><testcase classname="chess.Chinese Chess (象棋) Rules" name="Red moves the Elephant 2-step diagonal with a clear midpoint (Legal)" status="passed" time="0.001995"><system-out>
+<![CDATA[
+@scenario.begin
+
+  @Elephant
+  Scenario: Red moves the Elephant 2-step diagonal with a clear midpoint (Legal)
+    Given the board is empty except for a Red Elephant at (3, 3) ... passed in 0.001s
+    When Red moves the Elephant from (3, 3) to (5, 5) ... passed in 0.001s
+    Then the move is legal ... passed in 0.000s
+
+@scenario.end
+--------------------------------------------------------------------------------
+]]>
+</system-out></testcase><testcase classname="chess.Chinese Chess (象棋) Rules" name="Red moves the Elephant and tries to cross the river (Illegal)" status="passed" time="0.003991"><system-out>
+<![CDATA[
+@scenario.begin
+
+  @Elephant
+  Scenario: Red moves the Elephant and tries to cross the river (Illegal)
+    Given the board is empty except for a Red Elephant at (5, 3) ... passed in 0.002s
+    When Red moves the Elephant from (5, 3) to (7, 5) ... passed in 0.001s
+    Then the move is illegal ... passed in 0.001s
+
+@scenario.end
+--------------------------------------------------------------------------------
+]]>
+</system-out></testcase><testcase classname="chess.Chinese Chess (象棋) Rules" name="Red moves the Elephant and its midpoint is blocked (Illegal)" status="passed" time="0.004992"><system-out>
+<![CDATA[
+@scenario.begin
+
+  @Elephant
+  Scenario: Red moves the Elephant and its midpoint is blocked (Illegal)
+    Given the board has ... passed in 0.003s
+      | Piece        | Position |
+      | Red Elephant | (3, 3)   |
+      | Black Rook   | (4, 4)   |
+    When Red moves the Elephant from (3, 3) to (5, 5) ... passed in 0.001s
+    Then the move is illegal ... passed in 0.001s
+
+@scenario.end
+--------------------------------------------------------------------------------
+]]>
+</system-out></testcase><testcase classname="chess.Chinese Chess (象棋) Rules" name="Red moves the Soldier forward before crossing the river (Legal)" status="passed" time="0.002992"><system-out>
+<![CDATA[
+@scenario.begin
+
+  @Soldier
+  Scenario: Red moves the Soldier forward before crossing the river (Legal)
+    Given the board is empty except for a Red Soldier at (3, 5) ... passed in 0.001s
+    When Red moves the Soldier from (3, 5) to (4, 5) ... passed in 0.001s
+    Then the move is legal ... passed in 0.001s
+
+@scenario.end
+--------------------------------------------------------------------------------
+]]>
+</system-out></testcase><testcase classname="chess.Chinese Chess (象棋) Rules" name="Red moves the Soldier and tries to move sideways before crossing (Illegal)" status="passed" time="0.003994"><system-out>
+<![CDATA[
+@scenario.begin
+
+  @Soldier
+  Scenario: Red moves the Soldier and tries to move sideways before crossing (Illegal)
+    Given the board is empty except for a Red Soldier at (3, 5) ... passed in 0.002s
+    When Red moves the Soldier from (3, 5) to (3, 4) ... passed in 0.001s
+    Then the move is illegal ... passed in 0.001s
+
+@scenario.end
+--------------------------------------------------------------------------------
+]]>
+</system-out></testcase><testcase classname="chess.Chinese Chess (象棋) Rules" name="Red moves the Soldier sideways after crossing the river (Legal)" status="passed" time="0.002992"><system-out>
+<![CDATA[
+@scenario.begin
+
+  @Soldier
+  Scenario: Red moves the Soldier sideways after crossing the river (Legal)
+    Given the board is empty except for a Red Soldier at (6, 5) ... passed in 0.001s
+    When Red moves the Soldier from (6, 5) to (6, 4) ... passed in 0.001s
+    Then the move is legal ... passed in 0.001s
+
+@scenario.end
+--------------------------------------------------------------------------------
+]]>
+</system-out></testcase><testcase classname="chess.Chinese Chess (象棋) Rules" name="Red moves the Soldier and attempts to move backward after crossing (Illegal)" status="passed" time="0.005983"><system-out>
+<![CDATA[
+@scenario.begin
+
+  @Soldier
+  Scenario: Red moves the Soldier and attempts to move backward after crossing (Illegal)
+    Given the board is empty except for a Red Soldier at (6, 5) ... passed in 0.002s
+    When Red moves the Soldier from (6, 5) to (5, 5) ... passed in 0.003s
+    Then the move is illegal ... passed in 0.001s
+
+@scenario.end
+--------------------------------------------------------------------------------
+]]>
+</system-out></testcase><testcase classname="chess.Chinese Chess (象棋) Rules" name="Red captures opponent's General and wins immediately (Legal)" status="passed" time="0.002992"><system-out>
+<![CDATA[
+@scenario.begin
+
+  @Winning
+  Scenario: Red captures opponent's General and wins immediately (Legal)
+    Given the board has ... passed in 0.002s
+      | Piece         | Position |
+      | Red Rook      | (5, 5)   |
+      | Black General | (5, 8)   |
+    When Red moves the Rook from (5, 5) to (5, 8) ... passed in 0.001s
+    Then Red wins immediately ... passed in 0.000s
+
+@scenario.end
+--------------------------------------------------------------------------------
+]]>
+</system-out></testcase><testcase classname="chess.Chinese Chess (象棋) Rules" name="Red captures a non-General piece and the game continues (Legal)" status="passed" time="0.003986"><system-out>
+<![CDATA[
+@scenario.begin
+
+  @Winning
+  Scenario: Red captures a non-General piece and the game continues (Legal)
+    Given the board has ... passed in 0.002s
+      | Piece        | Position |
+      | Red Rook     | (5, 5)   |
+      | Black Cannon | (5, 8)   |
+    When Red moves the Rook from (5, 5) to (5, 8) ... passed in 0.002s
+    Then the game is not over just from that capture ... passed in 0.000s
+
+@scenario.end
+--------------------------------------------------------------------------------
+]]>
+</system-out></testcase></testsuite>

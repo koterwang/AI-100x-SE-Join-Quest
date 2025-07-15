@@ -1,0 +1,1213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TESTS-chess.xml</title>
+    <style type="text/css">
+        body {
+    background-color: white;
+    padding-bottom: 20em;
+    margin: 0;
+    min-height: 15cm;
+}
+
+h1, h2, h3, h4, h5, h6, h7 {
+    font-family: sans-serif;
+}
+
+h1 {
+    background-color: #007acc;
+    color: white;
+    padding: 3mm;
+    margin-top: 0;
+    margin-bottom: 1mm;
+}
+
+.footer {
+    font-style: italic;
+    font-size: small;
+    text-align: right;
+    padding: 1em;
+}
+
+.testsuite {
+    padding-bottom: 2em;
+    margin-left: 1em;
+}
+
+.proplist {
+    width: 100%;
+    margin-bottom: 2em;
+    border-collapse: collapse;
+    border: 1px solid grey;
+}
+
+.proplist th {
+    background-color: silver;
+    width: 5em;
+    padding: 2px;
+    padding-right: 1em;
+    text-align: left;
+}
+
+.proplist td {
+    padding: 2px;
+    word-break: break-all;
+}
+
+.index-table {
+    width: 90%;
+    margin-left: 1em;
+}
+
+.index-table td {
+    vertical-align: top;
+    max-width: 200px;
+    word-wrap: break-word;
+}
+
+.failure-index {
+
+}
+
+.toc {
+    margin-bottom: 2em;
+    font-family: monospace;
+}
+
+.stdio, pre {
+    min-height: 1em;
+    background-color: #1e1e1e;
+    color: silver;
+    padding: 0.5em;
+}
+.tdpre {
+    background-color: #1e1e1e;
+}
+
+.test {
+    margin-left: 0.5cm;
+}
+
+.toc {
+    list-style: none;
+}
+
+.toc li.outcome {
+    list-style: none;
+}
+
+.toc li.outcome::before {
+    content: "\2022";
+    color: black;
+    font-weight: bold;
+    display: inline-block;
+    width: 1.27em;
+    margin-left: -1.27em;
+    font-size: 1.2em;
+}
+
+.toc li.outcome-failed {
+    background-color: lightcoral;
+}
+
+.toc li.outcome-failed::before {
+    color: red;
+}
+
+.toc li.outcome-passed::before {
+    color: green;
+}
+
+.toc li.outcome-skipped::before {
+    color: orange;
+}
+
+.testcases .outcome {
+    border-left: 1em;
+    padding: 2px;
+}
+
+.testcases .outcome-failed {
+    border-left: 1em solid lightcoral;
+}
+
+
+.outcome-passed {
+    border-left: 1em solid lightgreen;
+}
+
+.outcome-skipped {
+    border-left: 1em dotted silver;
+}
+
+.testcases .outcome-passed {
+    border-left: 1em solid lightgreen;
+}
+
+.testcases .outcome-skipped {
+    border-left: 1em solid #FED8B1;
+}
+
+.stats-table {
+}
+
+.stats-table td {
+    min-width: 4em;
+    text-align: right;
+}
+
+.stats-table .failed {
+    background-color: lightcoral;
+}
+
+.stats-table .passed {
+    background-color: lightgreen;
+}
+
+.matrix-table {
+    table-layout: fixed;
+    border-spacing: 0;
+    width: available;
+    margin-left: 1em;
+}
+
+.matrix-table td {
+    vertical-align: center;
+}
+
+.matrix-table td:last-child {
+    width: 0;
+}
+
+.matrix-table tr:hover {
+    background-color: yellow;
+}
+
+.matrix-axis-name {
+    white-space: nowrap;
+    padding-right: 0.5em;
+    border-left: 1px solid black;
+    border-top: 1px solid black;
+    text-align: right;
+}
+
+.matrix-axis-line {
+    border-left: 1px solid black;
+    width: 0.5em;
+}
+
+.matrix-classname {
+    text-align: left;
+    width: 100%;
+    border-top: 2px solid grey;
+    border-bottom: 1px solid silver;
+}
+
+.matrix-casename {
+    text-align: left;
+    font-weight: normal;
+    font-style: italic;
+    padding-left: 1em;
+    border-bottom: 1px solid silver;
+}
+
+.matrix-result {
+    display: block;
+    width: 1em;
+    text-align: center;
+    padding: 1mm;
+    margin: 0;
+}
+
+.matrix-result-combined {
+    white-space: nowrap;
+    padding-right: 0.2em;
+    text-align: right;
+}
+
+.matrix-result-failed {
+    background-color: lightcoral;
+}
+
+.matrix-result-passed {
+    background-color: lightgreen;
+}
+
+.matrix-result-skipped {
+    background-color: lightyellow;
+}
+
+.matrix-even {
+    background-color: lightgray;
+}
+    </style>
+</head>
+<body>
+    
+<h1>
+    Test Report : TESTS-chess.xml
+</h1>
+
+
+<a id="toc"></a>
+<table class="index-table">
+    <tr>
+        <td>
+            <ul class="toc">
+            
+                
+                <li>chess.Chinese Chess (象棋) Rules
+                <ul>
+                    
+                    <li class="outcome outcome-passed"><a href="#68e9aa4b-83f1-4b04-957f-85860fb48cb6">Red moves the General within the palace (Legal)</a></li>
+                    
+                    <li class="outcome outcome-passed"><a href="#fb03675c-5acc-4146-b897-61cb9dce9802">Red moves the General outside the palace (Illegal)</a></li>
+                    
+                    <li class="outcome outcome-passed"><a href="#85a6af7a-dd0e-4791-84f0-9a9bf42a8a38">Generals face each other on the same file (Illegal)</a></li>
+                    
+                    <li class="outcome outcome-passed"><a href="#b5a3fec6-90a4-4821-89ec-0b062ca41289">Red moves the Guard diagonally in the palace (Legal)</a></li>
+                    
+                    <li class="outcome outcome-passed"><a href="#0a6a2102-64c8-4992-8ef2-65ab293d52c1">Red moves the Guard straight (Illegal)</a></li>
+                    
+                    <li class="outcome outcome-passed"><a href="#1fc475c5-5d64-4c8c-bd0e-446609ecf9e9">Red moves the Rook along a clear rank (Legal)</a></li>
+                    
+                    <li class="outcome outcome-passed"><a href="#dc993369-53ee-4f23-8dd7-ccf89fff4d3a">Red moves the Rook and attempts to jump over a piece (Illegal)</a></li>
+                    
+                    <li class="outcome outcome-passed"><a href="#3033bf8f-b89a-4ccb-a124-a406dbc8e4c5">Red moves the Horse in an “L” shape with no block (Legal)</a></li>
+                    
+                    <li class="outcome outcome-passed"><a href="#d3024bc8-9f55-452f-9b43-1f71fa3f3403">Red moves the Horse and it is blocked by an adjacent piece (Illegal)</a></li>
+                    
+                    <li class="outcome outcome-passed"><a href="#30dece52-e600-4749-8a5a-f81da1c39811">Red moves the Cannon like a Rook with an empty path (Legal)</a></li>
+                    
+                    <li class="outcome outcome-passed"><a href="#6789f657-9e81-4c10-b7a3-c60fce32b60a">Red moves the Cannon and jumps exactly one screen to capture (Legal)</a></li>
+                    
+                    <li class="outcome outcome-passed"><a href="#659e9aa3-cf00-41bb-b096-18a090c6e6c7">Red moves the Cannon and tries to jump with zero screens (Illegal)</a></li>
+                    
+                    <li class="outcome outcome-passed"><a href="#e239cf39-b654-446f-8580-bdb0c9775806">Red moves the Cannon and tries to jump with more than one screen (Illegal)</a></li>
+                    
+                    <li class="outcome outcome-passed"><a href="#237b45fa-1e96-41ee-b3df-945c98990ced">Red moves the Elephant 2-step diagonal with a clear midpoint (Legal)</a></li>
+                    
+                    <li class="outcome outcome-passed"><a href="#d9a1ca81-2304-4320-8303-21826ae97795">Red moves the Elephant and tries to cross the river (Illegal)</a></li>
+                    
+                    <li class="outcome outcome-passed"><a href="#2d8d1b0e-f557-4bfb-96ab-337b56f590d0">Red moves the Elephant and its midpoint is blocked (Illegal)</a></li>
+                    
+                    <li class="outcome outcome-passed"><a href="#05902433-1ddd-43dd-b0da-b6c27725d0a1">Red moves the Soldier forward before crossing the river (Legal)</a></li>
+                    
+                    <li class="outcome outcome-passed"><a href="#46aba182-9618-4e40-9fb2-d3e506739466">Red moves the Soldier and tries to move sideways before crossing (Illegal)</a></li>
+                    
+                    <li class="outcome outcome-passed"><a href="#c974d173-fe43-4663-801a-2bce72412025">Red moves the Soldier sideways after crossing the river (Legal)</a></li>
+                    
+                    <li class="outcome outcome-passed"><a href="#911435d2-16ea-437d-b614-abc360cc0e23">Red moves the Soldier and attempts to move backward after crossing (Illegal)</a></li>
+                    
+                    <li class="outcome outcome-passed"><a href="#008b57ea-0da2-4d6b-8e4b-6dff8d0191ec">Red captures opponent&#39;s General and wins immediately (Legal)</a></li>
+                    
+                    <li class="outcome outcome-passed"><a href="#4f290b4a-3f3b-4770-9084-8432a138fafb">Red captures a non-General piece and the game continues (Legal)</a></li>
+                    
+                </ul>
+                </li>
+                
+            
+            </ul>
+        </td>
+        <td class="failure-index">
+            <ul class="toc">
+            
+                
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                
+            
+            </ul>
+        </td>
+    </tr>
+</table>
+
+
+
+    <div class="testsuite">
+        <h2>Test Suite: chess.Chinese Chess (象棋) Rules</h2>
+        <a id="ba8cfae3-e27b-49c6-a9a6-3ff90327c9aa"></a>
+        
+        
+        <h3>Results</h3>
+        <table class="proplist">
+            <tr>
+                <th>Duration</th><td>0.085 sec</td>
+            </tr>
+            <tr>
+                <th>Tests</th><td>22</td>
+            </tr>
+            <tr>
+                <th>Failures</th><td>0</td>
+            </tr>
+        </table>
+
+        <div class="testclasses">
+            <h3>Tests</h3>
+            
+            <div class="testclass">
+                <h4>chess.Chinese Chess (象棋) Rules</h4>
+                <div class="testcases">
+                
+                    <div class="test outcome outcome-passed">
+                        <a id="68e9aa4b-83f1-4b04-957f-85860fb48cb6"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>Red moves the General within the palace (Legal)</b></td></tr>
+                            <tr><th>Outcome:</th><td>Passed</td></tr>
+                            <tr><th>Duration:</th><td>0.001 sec</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        
+
+                        
+                        
+                        <div class="stdout"><i>Stdout</i><br>
+                            <pre>
+
+@scenario.begin
+
+  @General
+  Scenario: Red moves the General within the palace (Legal)
+    Given the board is empty except for a Red General at (1, 5) ... passed in 0.001s
+    When Red moves the General from (1, 5) to (1, 4) ... passed in 0.000s
+    Then the move is legal ... passed in 0.000s
+
+@scenario.end
+--------------------------------------------------------------------------------
+
+</pre>
+                        </div>
+                        
+                        
+                    </div>
+                
+                    <div class="test outcome outcome-passed">
+                        <a id="fb03675c-5acc-4146-b897-61cb9dce9802"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>Red moves the General outside the palace (Illegal)</b></td></tr>
+                            <tr><th>Outcome:</th><td>Passed</td></tr>
+                            <tr><th>Duration:</th><td>0.011 sec</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        
+
+                        
+                        
+                        <div class="stdout"><i>Stdout</i><br>
+                            <pre>
+
+@scenario.begin
+
+  @General
+  Scenario: Red moves the General outside the palace (Illegal)
+    Given the board is empty except for a Red General at (1, 6) ... passed in 0.010s
+    When Red moves the General from (1, 6) to (1, 7) ... passed in 0.001s
+    Then the move is illegal ... passed in 0.000s
+
+@scenario.end
+--------------------------------------------------------------------------------
+
+</pre>
+                        </div>
+                        
+                        
+                    </div>
+                
+                    <div class="test outcome outcome-passed">
+                        <a id="85a6af7a-dd0e-4791-84f0-9a9bf42a8a38"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>Generals face each other on the same file (Illegal)</b></td></tr>
+                            <tr><th>Outcome:</th><td>Passed</td></tr>
+                            <tr><th>Duration:</th><td>0.004 sec</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        
+
+                        
+                        
+                        <div class="stdout"><i>Stdout</i><br>
+                            <pre>
+
+@scenario.begin
+
+  @General
+  Scenario: Generals face each other on the same file (Illegal)
+    Given the board has ... passed in 0.002s
+      | Piece         | Position |
+      | Red General   | (2, 4)   |
+      | Black General | (8, 5)   |
+    When Red moves the General from (2, 4) to (2, 5) ... passed in 0.001s
+    Then the move is illegal ... passed in 0.001s
+
+@scenario.end
+--------------------------------------------------------------------------------
+
+</pre>
+                        </div>
+                        
+                        
+                    </div>
+                
+                    <div class="test outcome outcome-passed">
+                        <a id="b5a3fec6-90a4-4821-89ec-0b062ca41289"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>Red moves the Guard diagonally in the palace (Legal)</b></td></tr>
+                            <tr><th>Outcome:</th><td>Passed</td></tr>
+                            <tr><th>Duration:</th><td>0.003 sec</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        
+
+                        
+                        
+                        <div class="stdout"><i>Stdout</i><br>
+                            <pre>
+
+@scenario.begin
+
+  @Guard
+  Scenario: Red moves the Guard diagonally in the palace (Legal)
+    Given the board is empty except for a Red Guard at (1, 4) ... passed in 0.002s
+    When Red moves the Guard from (1, 4) to (2, 5) ... passed in 0.001s
+    Then the move is legal ... passed in 0.000s
+
+@scenario.end
+--------------------------------------------------------------------------------
+
+</pre>
+                        </div>
+                        
+                        
+                    </div>
+                
+                    <div class="test outcome outcome-passed">
+                        <a id="0a6a2102-64c8-4992-8ef2-65ab293d52c1"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>Red moves the Guard straight (Illegal)</b></td></tr>
+                            <tr><th>Outcome:</th><td>Passed</td></tr>
+                            <tr><th>Duration:</th><td>0.003 sec</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        
+
+                        
+                        
+                        <div class="stdout"><i>Stdout</i><br>
+                            <pre>
+
+@scenario.begin
+
+  @Guard
+  Scenario: Red moves the Guard straight (Illegal)
+    Given the board is empty except for a Red Guard at (2, 5) ... passed in 0.001s
+    When Red moves the Guard from (2, 5) to (2, 6) ... passed in 0.001s
+    Then the move is illegal ... passed in 0.001s
+
+@scenario.end
+--------------------------------------------------------------------------------
+
+</pre>
+                        </div>
+                        
+                        
+                    </div>
+                
+                    <div class="test outcome outcome-passed">
+                        <a id="1fc475c5-5d64-4c8c-bd0e-446609ecf9e9"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>Red moves the Rook along a clear rank (Legal)</b></td></tr>
+                            <tr><th>Outcome:</th><td>Passed</td></tr>
+                            <tr><th>Duration:</th><td>0.004 sec</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        
+
+                        
+                        
+                        <div class="stdout"><i>Stdout</i><br>
+                            <pre>
+
+@scenario.begin
+
+  @Rook
+  Scenario: Red moves the Rook along a clear rank (Legal)
+    Given the board is empty except for a Red Rook at (4, 1) ... passed in 0.002s
+    When Red moves the Rook from (4, 1) to (4, 9) ... passed in 0.001s
+    Then the move is legal ... passed in 0.001s
+
+@scenario.end
+--------------------------------------------------------------------------------
+
+Captured stdout:
+&gt;&gt;&gt; Given Red Rook 被執行
+
+
+</pre>
+                        </div>
+                        
+                        
+                    </div>
+                
+                    <div class="test outcome outcome-passed">
+                        <a id="dc993369-53ee-4f23-8dd7-ccf89fff4d3a"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>Red moves the Rook and attempts to jump over a piece (Illegal)</b></td></tr>
+                            <tr><th>Outcome:</th><td>Passed</td></tr>
+                            <tr><th>Duration:</th><td>0.004 sec</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        
+
+                        
+                        
+                        <div class="stdout"><i>Stdout</i><br>
+                            <pre>
+
+@scenario.begin
+
+  @Rook
+  Scenario: Red moves the Rook and attempts to jump over a piece (Illegal)
+    Given the board has ... passed in 0.002s
+      | Piece         | Position |
+      | Red Rook      | (4, 1)   |
+      | Black Soldier | (4, 5)   |
+    When Red moves the Rook from (4, 1) to (4, 9) ... passed in 0.001s
+    Then the move is illegal ... passed in 0.001s
+
+@scenario.end
+--------------------------------------------------------------------------------
+
+</pre>
+                        </div>
+                        
+                        
+                    </div>
+                
+                    <div class="test outcome outcome-passed">
+                        <a id="3033bf8f-b89a-4ccb-a124-a406dbc8e4c5"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>Red moves the Horse in an “L” shape with no block (Legal)</b></td></tr>
+                            <tr><th>Outcome:</th><td>Passed</td></tr>
+                            <tr><th>Duration:</th><td>0.003 sec</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        
+
+                        
+                        
+                        <div class="stdout"><i>Stdout</i><br>
+                            <pre>
+
+@scenario.begin
+
+  @Horse
+  Scenario: Red moves the Horse in an “L” shape with no block (Legal)
+    Given the board is empty except for a Red Horse at (3, 3) ... passed in 0.001s
+    When Red moves the Horse from (3, 3) to (5, 4) ... passed in 0.001s
+    Then the move is legal ... passed in 0.001s
+
+@scenario.end
+--------------------------------------------------------------------------------
+
+</pre>
+                        </div>
+                        
+                        
+                    </div>
+                
+                    <div class="test outcome outcome-passed">
+                        <a id="d3024bc8-9f55-452f-9b43-1f71fa3f3403"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>Red moves the Horse and it is blocked by an adjacent piece (Illegal)</b></td></tr>
+                            <tr><th>Outcome:</th><td>Passed</td></tr>
+                            <tr><th>Duration:</th><td>0.004 sec</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        
+
+                        
+                        
+                        <div class="stdout"><i>Stdout</i><br>
+                            <pre>
+
+@scenario.begin
+
+  @Horse
+  Scenario: Red moves the Horse and it is blocked by an adjacent piece (Illegal)
+    Given the board has ... passed in 0.002s
+      | Piece      | Position |
+      | Red Horse  | (3, 3)   |
+      | Black Rook | (4, 3)   |
+    When Red moves the Horse from (3, 3) to (5, 4) ... passed in 0.001s
+    Then the move is illegal ... passed in 0.001s
+
+@scenario.end
+--------------------------------------------------------------------------------
+
+</pre>
+                        </div>
+                        
+                        
+                    </div>
+                
+                    <div class="test outcome outcome-passed">
+                        <a id="30dece52-e600-4749-8a5a-f81da1c39811"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>Red moves the Cannon like a Rook with an empty path (Legal)</b></td></tr>
+                            <tr><th>Outcome:</th><td>Passed</td></tr>
+                            <tr><th>Duration:</th><td>0.003 sec</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        
+
+                        
+                        
+                        <div class="stdout"><i>Stdout</i><br>
+                            <pre>
+
+@scenario.begin
+
+  @Cannon
+  Scenario: Red moves the Cannon like a Rook with an empty path (Legal)
+    Given the board is empty except for a Red Cannon at (6, 2) ... passed in 0.001s
+    When Red moves the Cannon from (6, 2) to (6, 8) ... passed in 0.001s
+    Then the move is legal ... passed in 0.001s
+
+@scenario.end
+--------------------------------------------------------------------------------
+
+</pre>
+                        </div>
+                        
+                        
+                    </div>
+                
+                    <div class="test outcome outcome-passed">
+                        <a id="6789f657-9e81-4c10-b7a3-c60fce32b60a"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>Red moves the Cannon and jumps exactly one screen to capture (Legal)</b></td></tr>
+                            <tr><th>Outcome:</th><td>Passed</td></tr>
+                            <tr><th>Duration:</th><td>0.004 sec</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        
+
+                        
+                        
+                        <div class="stdout"><i>Stdout</i><br>
+                            <pre>
+
+@scenario.begin
+
+  @Cannon
+  Scenario: Red moves the Cannon and jumps exactly one screen to capture (Legal)
+    Given the board has ... passed in 0.002s
+      | Piece         | Position |
+      | Red Cannon    | (6, 2)   |
+      | Black Soldier | (6, 5)   |
+      | Black Guard   | (6, 8)   |
+    When Red moves the Cannon from (6, 2) to (6, 8) ... passed in 0.001s
+    Then the move is legal ... passed in 0.001s
+
+@scenario.end
+--------------------------------------------------------------------------------
+
+</pre>
+                        </div>
+                        
+                        
+                    </div>
+                
+                    <div class="test outcome outcome-passed">
+                        <a id="659e9aa3-cf00-41bb-b096-18a090c6e6c7"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>Red moves the Cannon and tries to jump with zero screens (Illegal)</b></td></tr>
+                            <tr><th>Outcome:</th><td>Passed</td></tr>
+                            <tr><th>Duration:</th><td>0.004 sec</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        
+
+                        
+                        
+                        <div class="stdout"><i>Stdout</i><br>
+                            <pre>
+
+@scenario.begin
+
+  @Cannon
+  Scenario: Red moves the Cannon and tries to jump with zero screens (Illegal)
+    Given the board has ... passed in 0.002s
+      | Piece       | Position |
+      | Red Cannon  | (6, 2)   |
+      | Black Guard | (6, 8)   |
+    When Red moves the Cannon from (6, 2) to (6, 8) ... passed in 0.002s
+    Then the move is illegal ... passed in 0.000s
+
+@scenario.end
+--------------------------------------------------------------------------------
+
+</pre>
+                        </div>
+                        
+                        
+                    </div>
+                
+                    <div class="test outcome outcome-passed">
+                        <a id="e239cf39-b654-446f-8580-bdb0c9775806"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>Red moves the Cannon and tries to jump with more than one screen (Illegal)</b></td></tr>
+                            <tr><th>Outcome:</th><td>Passed</td></tr>
+                            <tr><th>Duration:</th><td>0.004 sec</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        
+
+                        
+                        
+                        <div class="stdout"><i>Stdout</i><br>
+                            <pre>
+
+@scenario.begin
+
+  @Cannon
+  Scenario: Red moves the Cannon and tries to jump with more than one screen (Illegal)
+    Given the board has ... passed in 0.002s
+      | Piece         | Position |
+      | Red Cannon    | (6, 2)   |
+      | Red Soldier   | (6, 4)   |
+      | Black Soldier | (6, 5)   |
+      | Black Guard   | (6, 8)   |
+    When Red moves the Cannon from (6, 2) to (6, 8) ... passed in 0.001s
+    Then the move is illegal ... passed in 0.001s
+
+@scenario.end
+--------------------------------------------------------------------------------
+
+</pre>
+                        </div>
+                        
+                        
+                    </div>
+                
+                    <div class="test outcome outcome-passed">
+                        <a id="237b45fa-1e96-41ee-b3df-945c98990ced"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>Red moves the Elephant 2-step diagonal with a clear midpoint (Legal)</b></td></tr>
+                            <tr><th>Outcome:</th><td>Passed</td></tr>
+                            <tr><th>Duration:</th><td>0.004 sec</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        
+
+                        
+                        
+                        <div class="stdout"><i>Stdout</i><br>
+                            <pre>
+
+@scenario.begin
+
+  @Elephant
+  Scenario: Red moves the Elephant 2-step diagonal with a clear midpoint (Legal)
+    Given the board is empty except for a Red Elephant at (3, 3) ... passed in 0.001s
+    When Red moves the Elephant from (3, 3) to (5, 5) ... passed in 0.001s
+    Then the move is legal ... passed in 0.002s
+
+@scenario.end
+--------------------------------------------------------------------------------
+
+</pre>
+                        </div>
+                        
+                        
+                    </div>
+                
+                    <div class="test outcome outcome-passed">
+                        <a id="d9a1ca81-2304-4320-8303-21826ae97795"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>Red moves the Elephant and tries to cross the river (Illegal)</b></td></tr>
+                            <tr><th>Outcome:</th><td>Passed</td></tr>
+                            <tr><th>Duration:</th><td>0.001 sec</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        
+
+                        
+                        
+                        <div class="stdout"><i>Stdout</i><br>
+                            <pre>
+
+@scenario.begin
+
+  @Elephant
+  Scenario: Red moves the Elephant and tries to cross the river (Illegal)
+    Given the board is empty except for a Red Elephant at (5, 3) ... passed in 0.001s
+    When Red moves the Elephant from (5, 3) to (7, 5) ... passed in 0.000s
+    Then the move is illegal ... passed in 0.000s
+
+@scenario.end
+--------------------------------------------------------------------------------
+
+</pre>
+                        </div>
+                        
+                        
+                    </div>
+                
+                    <div class="test outcome outcome-passed">
+                        <a id="2d8d1b0e-f557-4bfb-96ab-337b56f590d0"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>Red moves the Elephant and its midpoint is blocked (Illegal)</b></td></tr>
+                            <tr><th>Outcome:</th><td>Passed</td></tr>
+                            <tr><th>Duration:</th><td>0.01 sec</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        
+
+                        
+                        
+                        <div class="stdout"><i>Stdout</i><br>
+                            <pre>
+
+@scenario.begin
+
+  @Elephant
+  Scenario: Red moves the Elephant and its midpoint is blocked (Illegal)
+    Given the board has ... passed in 0.005s
+      | Piece        | Position |
+      | Red Elephant | (3, 3)   |
+      | Black Rook   | (4, 4)   |
+    When Red moves the Elephant from (3, 3) to (5, 5) ... passed in 0.004s
+    Then the move is illegal ... passed in 0.001s
+
+@scenario.end
+--------------------------------------------------------------------------------
+
+</pre>
+                        </div>
+                        
+                        
+                    </div>
+                
+                    <div class="test outcome outcome-passed">
+                        <a id="05902433-1ddd-43dd-b0da-b6c27725d0a1"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>Red moves the Soldier forward before crossing the river (Legal)</b></td></tr>
+                            <tr><th>Outcome:</th><td>Passed</td></tr>
+                            <tr><th>Duration:</th><td>0.002 sec</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        
+
+                        
+                        
+                        <div class="stdout"><i>Stdout</i><br>
+                            <pre>
+
+@scenario.begin
+
+  @Soldier
+  Scenario: Red moves the Soldier forward before crossing the river (Legal)
+    Given the board is empty except for a Red Soldier at (3, 5) ... passed in 0.001s
+    When Red moves the Soldier from (3, 5) to (4, 5) ... passed in 0.001s
+    Then the move is legal ... passed in 0.000s
+
+@scenario.end
+--------------------------------------------------------------------------------
+
+</pre>
+                        </div>
+                        
+                        
+                    </div>
+                
+                    <div class="test outcome outcome-passed">
+                        <a id="46aba182-9618-4e40-9fb2-d3e506739466"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>Red moves the Soldier and tries to move sideways before crossing (Illegal)</b></td></tr>
+                            <tr><th>Outcome:</th><td>Passed</td></tr>
+                            <tr><th>Duration:</th><td>0.002 sec</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        
+
+                        
+                        
+                        <div class="stdout"><i>Stdout</i><br>
+                            <pre>
+
+@scenario.begin
+
+  @Soldier
+  Scenario: Red moves the Soldier and tries to move sideways before crossing (Illegal)
+    Given the board is empty except for a Red Soldier at (3, 5) ... passed in 0.001s
+    When Red moves the Soldier from (3, 5) to (3, 4) ... passed in 0.001s
+    Then the move is illegal ... passed in 0.000s
+
+@scenario.end
+--------------------------------------------------------------------------------
+
+</pre>
+                        </div>
+                        
+                        
+                    </div>
+                
+                    <div class="test outcome outcome-passed">
+                        <a id="c974d173-fe43-4663-801a-2bce72412025"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>Red moves the Soldier sideways after crossing the river (Legal)</b></td></tr>
+                            <tr><th>Outcome:</th><td>Passed</td></tr>
+                            <tr><th>Duration:</th><td>0.003 sec</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        
+
+                        
+                        
+                        <div class="stdout"><i>Stdout</i><br>
+                            <pre>
+
+@scenario.begin
+
+  @Soldier
+  Scenario: Red moves the Soldier sideways after crossing the river (Legal)
+    Given the board is empty except for a Red Soldier at (6, 5) ... passed in 0.001s
+    When Red moves the Soldier from (6, 5) to (6, 4) ... passed in 0.001s
+    Then the move is legal ... passed in 0.001s
+
+@scenario.end
+--------------------------------------------------------------------------------
+
+</pre>
+                        </div>
+                        
+                        
+                    </div>
+                
+                    <div class="test outcome outcome-passed">
+                        <a id="911435d2-16ea-437d-b614-abc360cc0e23"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>Red moves the Soldier and attempts to move backward after crossing (Illegal)</b></td></tr>
+                            <tr><th>Outcome:</th><td>Passed</td></tr>
+                            <tr><th>Duration:</th><td>0.003 sec</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        
+
+                        
+                        
+                        <div class="stdout"><i>Stdout</i><br>
+                            <pre>
+
+@scenario.begin
+
+  @Soldier
+  Scenario: Red moves the Soldier and attempts to move backward after crossing (Illegal)
+    Given the board is empty except for a Red Soldier at (6, 5) ... passed in 0.001s
+    When Red moves the Soldier from (6, 5) to (5, 5) ... passed in 0.001s
+    Then the move is illegal ... passed in 0.001s
+
+@scenario.end
+--------------------------------------------------------------------------------
+
+</pre>
+                        </div>
+                        
+                        
+                    </div>
+                
+                    <div class="test outcome outcome-passed">
+                        <a id="008b57ea-0da2-4d6b-8e4b-6dff8d0191ec"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>Red captures opponent&#39;s General and wins immediately (Legal)</b></td></tr>
+                            <tr><th>Outcome:</th><td>Passed</td></tr>
+                            <tr><th>Duration:</th><td>0.003 sec</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        
+
+                        
+                        
+                        <div class="stdout"><i>Stdout</i><br>
+                            <pre>
+
+@scenario.begin
+
+  @Winning
+  Scenario: Red captures opponent&#39;s General and wins immediately (Legal)
+    Given the board has ... passed in 0.002s
+      | Piece         | Position |
+      | Red Rook      | (5, 5)   |
+      | Black General | (5, 8)   |
+    When Red moves the Rook from (5, 5) to (5, 8) ... passed in 0.001s
+    Then Red wins immediately ... passed in 0.000s
+
+@scenario.end
+--------------------------------------------------------------------------------
+
+</pre>
+                        </div>
+                        
+                        
+                    </div>
+                
+                    <div class="test outcome outcome-passed">
+                        <a id="4f290b4a-3f3b-4770-9084-8432a138fafb"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>Red captures a non-General piece and the game continues (Legal)</b></td></tr>
+                            <tr><th>Outcome:</th><td>Passed</td></tr>
+                            <tr><th>Duration:</th><td>0.005 sec</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        
+
+                        
+                        
+                        <div class="stdout"><i>Stdout</i><br>
+                            <pre>
+
+@scenario.begin
+
+  @Winning
+  Scenario: Red captures a non-General piece and the game continues (Legal)
+    Given the board has ... passed in 0.003s
+      | Piece        | Position |
+      | Red Rook     | (5, 5)   |
+      | Black Cannon | (5, 8)   |
+    When Red moves the Rook from (5, 5) to (5, 8) ... passed in 0.001s
+    Then the game is not over just from that capture ... passed in 0.001s
+
+@scenario.end
+--------------------------------------------------------------------------------
+
+</pre>
+                        </div>
+                        
+                        
+                    </div>
+                
+                </div>
+            </div>
+            
+        </div>
+    </div>
+    
+
+
+
+<p class="footer">
+    Generated by junit2html
+</p>
+</body>
+</html>
